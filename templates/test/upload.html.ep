@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>POSTするだけのやつ</title>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function(){
+      $('#testForm :submit').click(function(){
+
+      var form = $('#testForm').get(0);
+      var formData = new FormData(form);
+      console.log($('#testForm').attr('action'));
+    // FormData を送信
+    $.ajax($('#testForm').attr('action'), {
+        method: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+        dataType: 'json',
+        error: function() {
+            console.log('error');
+        },
+        success: function() {
+            console.log('success');
+        }
+    });
+        return false;
+      });
+    });
+  </script>
+</head>
+<body>
+  <form action="http://localhost:3000/answer" method="POST" id="testForm">
+    <input type="text" id="team_id" name="team_id" value="A">
+    <input type="text" id="image_number" name="image_number" value="1">
+    <input type="file" id="image" name="image">
+    <input type="submit" name="submitButton" value="送信">
+  </form>
+</body>
+</html>
