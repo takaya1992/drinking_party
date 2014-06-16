@@ -1,7 +1,7 @@
 package DrinkingParty::DB::Schema;
 use DBIx::Skinny::Schema;
     
-install_table user => schema {
+install_table answer => schema {
   pk 'id';
   columns qw/
     id

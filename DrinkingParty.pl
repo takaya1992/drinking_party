@@ -2,7 +2,7 @@
 use Mojolicious::Lite;
 use File::Basename 'basename';
 use File::Path 'mkpath';
-use DBI;
+use DrinkingParty::DB;
 
 # Documentation browser under "/perldoc"
 plugin 'PODRenderer';
@@ -55,6 +55,16 @@ post '/answer' => sub {
   $self->app->log->debug('image_number = ' . $image_number);
   $self->app->log->debug('image_file = ' . $image_file);
 
+  my $skinny = DrinkingParty::DB->new;
+  my $row = $skinny->insert('answer',
+    {
+      id           => 1,
+      team_id      => $team_id,
+      image_number => $image_number,
+      image_url    => $image_file
+    }
+  );
+      
 
   $self->res->code(200);
   $self->render(text => 'success');

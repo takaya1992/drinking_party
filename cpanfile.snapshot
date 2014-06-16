@@ -35,6 +35,21 @@ DISTRIBUTIONS
       perl 5.008
       strict 0
       warnings 0
+  DBD-SQLite-1.42
+    pathname: I/IS/ISHIGAKI/DBD-SQLite-1.42.tar.gz
+    provides:
+      DBD::SQLite 1.42
+      DBD::SQLite::_WriteOnceHash 1.42
+      DBD::SQLite::db 1.42
+      DBD::SQLite::dr 1.42
+    requirements:
+      DBI 1.57
+      ExtUtils::MakeMaker 6.48
+      File::Spec 0.82
+      Test::Builder 0.86
+      Test::More 0.47
+      Tie::Hash 0
+      perl 5.006
   DBI-1.631
     pathname: T/TI/TIMB/DBI-1.631.tar.gz
     provides:
