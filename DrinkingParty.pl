@@ -1,5 +1,6 @@
 #!/usr/bin/env perl
 use Mojolicious::Lite;
+use File::Spec;
 use File::Basename 'basename';
 use File::Path 'mkpath';
 use DrinkingParty::DB;
@@ -7,10 +8,10 @@ use DrinkingParty::DB;
 # Documentation browser under "/perldoc"
 plugin 'PODRenderer';
 
-my $IMAGE_BASE = '/upload/images';
-my $IMAGE_DIR  = app->home->rel_file('/public') . $IMAGE_BASE;
-unless (-d $IMAGE_DIR) {
-  mkpath $IMAGE_DIR or die "Cannot create dirctory: $IMAGE_DIR";
+my $IMAGE_BASE = 'upload/images';
+my $IMAGE_DIR  = app->home->rel_file('/public') . '/';
+unless (-d $IMAGE_DIR . $IMAGE_BASE) {
+  mkpath $IMAGE_DIR . $IMAGE_BASE or die "Cannot create dirctory: $IMAGE_DIR $IMAGE_BASE";
 }
 
 my $skinny = DrinkingParty::DB->new;
@@ -44,12 +45,12 @@ post '/answer' => sub {
     });
   }
 
-  my $image_file = "$IMAGE_DIR/" . create_filename(). ".png";
-  while (-f $image_file) {
-    $image_file = "$IMAGE_DIR/" . create_filename() . ".png";
+  my $image_file = "$IMAGE_BASE/" . create_filename(). ".png";
+  while (-f ($IMAGE_DIR . $image_file)) {
+    $image_file = "$IMAGE_BASE/" . create_filename() . ".png";
   }
 
-  $image->move_to($image_file);
+  $image->move_to($IMAGE_DIR . $image_file);
 
   $self->app->log->debug('team_id = ' . $team_id);
   $self->app->log->debug('image_number = ' . $image_number);
