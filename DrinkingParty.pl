@@ -60,7 +60,7 @@ post '/answer' => sub {
     {
       id           => 1,
       team_id      => $team_id,
-      image_number => $image_number,
+      answer_number => $image_number,
       image_url    => $image_file
     }
   );
