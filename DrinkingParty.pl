@@ -13,7 +13,7 @@ unless (-d $IMAGE_DIR) {
   mkpath $IMAGE_DIR or die "Cannot create dirctory: $IMAGE_DIR";
 }
 
-
+my $skinny = DrinkingParty::DB->new;
 
 get '/' => sub {
   my $self = shift;
@@ -55,10 +55,8 @@ post '/answer' => sub {
   $self->app->log->debug('image_number = ' . $image_number);
   $self->app->log->debug('image_file = ' . $image_file);
 
-  my $skinny = DrinkingParty::DB->new;
   my $row = $skinny->insert('answer',
     {
-      id           => 1,
       team_id      => $team_id,
       answer_number => $image_number,
       image_url    => $image_file
@@ -71,8 +69,20 @@ post '/answer' => sub {
 };
 
 get '/answer' => sub {
+  my $self = shift;
 
-
+  my $answers = {};
+  my @teams = qw/A B C/;
+  foreach my $team (@teams) {
+    my @rows = $skinny->search('answer', {team_id => $team}, {order_by => 'answer_number'});
+    my $_answers = [];
+    foreach my $row (@rows) {
+      push $_answers, $row->{row_data};
+    }
+    $answers->{$team} = $_answers;
+  }
+  $self->res->code(200);
+  $self->render(json => $answers);
 };
 
 get '/test/upload' => sub {
