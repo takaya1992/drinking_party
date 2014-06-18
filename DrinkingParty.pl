@@ -59,9 +59,10 @@ post '/answer' => sub {
 
   my $row = $skinny->insert('answer',
     {
-      team_id      => $team_id,
+      team_id       => $team_id,
       answer_number => $image_number,
-      image_url    => $image_file
+      image_url     => $image_file,
+      marked        => 0
     }
   );
       
@@ -73,9 +74,12 @@ post '/answer' => sub {
 get '/answer' => sub {
   my $self = shift;
 
+  #my $marked = ($self->param('marked') eq 0) ? 0 : 1;
+
   my $answers = {};
   my @teams = qw/A B C/;
   foreach my $team (@teams) {
+    #my @rows = $skinny->search('answer', {team_id => $team, marked => $marked}, {order_by => 'answer_number'});
     my @rows = $skinny->search('answer', {team_id => $team}, {order_by => 'answer_number'});
     my $_answers = [];
     foreach my $row (@rows) {
@@ -92,6 +96,11 @@ get '/test/upload' => sub {
   $self->render('test/upload');
 };
 
+
+get '/answer/mark' => sub {
+  my $self = shift;
+  $self->render('answer/mark');
+};
 
 # Create filename like image-20091014051023-78973
 sub create_filename {
@@ -110,5 +119,6 @@ sub create_filename {
     $rand_num
   );
 }
+
 
 app->start;

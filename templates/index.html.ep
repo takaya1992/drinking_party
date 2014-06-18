@@ -12,24 +12,24 @@
 </head>
 <body>
 <div id="team-A" class="row">
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
 </div>
 
 <div id="team-B" class="row">
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
 </div>
 
 <div id="team-C" class="row">
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.jpg" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3 answerDiv" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
 </div>
 </body>
 </html>

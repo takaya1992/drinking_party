@@ -5,4 +5,18 @@ body {
   position: relative;
 }
 
+#team-A {
+  background-color: #ddd;
+}
 
+#team-C {
+  background-color: #ddd;
+}
+
+.answerDiv img {
+  margin: 0 auto;
+}
+
+.answer-opened {
+  background-color: #00F;
+}

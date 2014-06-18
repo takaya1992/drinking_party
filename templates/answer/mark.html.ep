@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Show Answers</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery-1.11.1.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/mark.js"></script>
+</head>
+<body>
+<div id="team-A" class="row">
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+</div>
+
+<div id="team-B" class="row">
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+</div>
+
+<div id="team-C" class="row">
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+</div>
+</body>
+</html>

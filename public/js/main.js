@@ -10,7 +10,16 @@ var showAnswers = function(data) {
 
 function showAnswer(teamId, data) {
   data.forEach(function(answer) {
+    var answerDiv   = $("#team-"+ teamId +" div")[answer.answer_number-1];
     var answerImage = $("#team-"+ teamId +" img")[answer.answer_number-1];
-    $(answerImage).attr('src', answer.image_url);
+
+    var imageUrl = '/img/question_mark-blue.png';
+    if (answer.marked != 0) {
+      imageUrl = answer.image_url;
+    }
+    if (answer.marked == 1) {
+      $(answerDiv).addClass('answer-opened');
+    }
+    $(answerImage).attr('src', imageUrl);
   });
 }
