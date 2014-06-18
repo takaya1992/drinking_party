@@ -20,6 +20,10 @@ function showAnswer(teamId, data) {
     if (answer.marked == 1) {
       $(answerDiv).addClass('answer-opened');
     }
+    if (answer.marked == 2) {
+      $(answerDiv).removeClass('answer-opened');
+      $(answerDiv).addClass('answer-ok');
+    }
     $(answerImage).attr('src', imageUrl);
   });
 }

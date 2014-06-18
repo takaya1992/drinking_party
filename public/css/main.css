@@ -18,5 +18,9 @@ body {
 }
 
 .answer-opened {
-  background-color: #00F;
+  background-color: #33F;
+}
+
+.answer-ok {
+  background-color: #F33;
 }
