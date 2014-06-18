@@ -23,6 +23,7 @@ get '/' => sub {
 
 get '/reset' => sub {
   my $self = shift;
+  $skinny->delete('answer');
   $self->render(json => {
     result => 'success'
   });

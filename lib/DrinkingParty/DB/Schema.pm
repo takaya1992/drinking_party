@@ -8,6 +8,7 @@ install_table answer => schema {
     team_id
     answer_number
     image_url
+    marked
   /;
 };
 1;
