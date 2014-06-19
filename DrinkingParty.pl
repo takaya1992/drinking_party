@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 use Mojolicious::Lite;
-use Mojo::Util qw/b64_decode/;
+use Mojo::Util qw/b64_decode dumper/;
 use Mojo::JSON;
 use File::Spec;
 use File::Basename 'basename';
@@ -97,10 +97,48 @@ get '/answer/mark' => sub {
   $self->render('answer/mark');
 };
 
+get '/answer/show' => sub {
+  my $self = shift;
+  $skinny->update_by_sql(
+    q{UPDATE answer SET marked = ?},
+    [1]
+  );
+  $self->res->code(200);
+  $self->render(json => 'success');
+};
+
+get '/answer/hide' => sub {
+  my $self = shift;
+  $skinny->update_by_sql(
+    q{UPDATE answer SET marked = ?},
+    [0]
+  );
+  $self->res->code(200);
+  $self->render(json => 'success');
+}
+
+;
 post '/answer/mark' => sub {
   my $self = shift;
+  my $json = Mojo::JSON->new;
+  my $answers = $json->decode($self->req->body);
   
-
+  my @teams = qw/A B C/;
+  foreach my $team (@teams) {
+    my $answer = $answers->{$team};
+    foreach my $i (1..4) {
+      next unless ($answer->[$i-1]);
+      $skinny->update('answer',
+        {
+          marked => 2
+        },
+        {
+          team_id => $team,
+          answer_number => $i
+        }
+      );
+    }
+  }
 
   $self->res->code(200);
   $self->render(json => 'success');

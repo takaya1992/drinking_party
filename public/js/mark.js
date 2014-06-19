@@ -1,14 +1,30 @@
 var teamNames = ['A', 'B', 'C'];
 $(function() {
-  $.getJSON('http://localhost:3000/answer', showAnswers);
+  $.getJSON('/answer', showAnswers);
 
-  $('#reset-answer').click(function() {
+  $('#answer-reset').click(function() {
     $.get('/reset', null, function() {
       location.reload();
     });
   });
 
-  $('#mark-submit').click(function() {
+  $('#answer-show').click(function() {
+    $.get('/answer/show', null, function() {
+      location.reload();
+    });
+  });
+
+  $('#answer-hide').click(function() {
+    $.get('/answer/hide', null, function() {
+      location.reload();
+    });
+  });
+
+  $('#answer-mark').click(function() {
+    var button = $(this);
+    button.attr("disabled", true);
+
+
     var answerData = {'A': [], 'B': [], 'C': []};
     console.log(answerData);
     teamNames.forEach(function(teamId) {
@@ -18,6 +34,23 @@ $(function() {
       }
     });
     console.log(answerData);
+
+    $.ajax({
+      type:"post",
+      url:"/answer/mark",
+      data:JSON.stringify(answerData),
+      contentType: 'application/json',
+      dataType: "json",
+      success: function(json_data) {
+        location.reload();
+      },
+      error: function() {
+        alert("Server Error. Pleasy try again later.");
+      },
+      complete: function() {
+          button.attr("disabled", false);
+      }
+    });
   });
 });
 

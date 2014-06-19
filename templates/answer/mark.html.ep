@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Show Answers</title>
+  <title>採点システム</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="/css/main.css">
@@ -15,8 +15,10 @@
   <h1>採点システム</h1>
   <hr />
   <div class="row">
-    <button type="button" class="btn btn-success" id="mark-submit">採点！！</button>
-    <button type="button" class="btn btn-danger" id="reset-answer">リセット（回答が削除されます）</button>
+    <button type="button" class="btn btn-primary" id="answer-show">SHOW</button>
+    <button type="button" class="btn btn-default" id="answer-hide">HIDE</button>
+    <button type="button" class="btn btn-success" id="answer-mark">採点！！</button>
+    <button type="button" class="btn btn-danger" id="answer-reset">リセット（回答が削除されます）</button>
   </div>
 </div>
 <table class="table table-bordered">
