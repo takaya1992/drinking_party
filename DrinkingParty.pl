@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 use Mojolicious::Lite;
+use Mojo::Util qw/b64_decode/;
+use Mojo::JSON;
 use File::Spec;
 use File::Basename 'basename';
 use File::Path 'mkpath';
@@ -31,27 +33,21 @@ get '/reset' => sub {
 
 post '/answer' => sub {
   my $self = shift;
-  my $team_id      = $self->req->param('team_id');
-  my $image_number = $self->req->param('image_number');
-  my $image        = $self->req->upload('image');
-  # Check file type
-  my $image_type = $image->headers->content_type;
-  unless ($image_type eq 'image/png') {
-    $self->res->code(400);
-    return $self->render(json => {
-      error => {
-        code    => 100,
-        message => 'content type is not "image/png".'
-      }
-    });
-  }
+  my $team_id             = $self->req->param('team_id');
+  my $image_number        = $self->req->param('image_number');
+  my $image_base64_string = $self->req->param('image');
 
   my $image_file = "$IMAGE_BASE/" . create_filename(). ".png";
   while (-f ($IMAGE_DIR . $image_file)) {
     $image_file = "$IMAGE_BASE/" . create_filename() . ".png";
   }
+  my $image_bin = b64_decode $image_base64_string;
+  my $fh;
+  open $fh, '+> '.$IMAGE_DIR. $image_file or die 'cannot open '.$!;
+  #binmode $fh;
+  print $fh $image_bin;
+  close $fh;
 
-  $image->move_to($IMAGE_DIR . $image_file);
 
   $self->app->log->debug('team_id = ' . $team_id);
   $self->app->log->debug('image_number = ' . $image_number);
@@ -96,10 +92,18 @@ get '/test/upload' => sub {
   $self->render('test/upload');
 };
 
-
 get '/answer/mark' => sub {
   my $self = shift;
   $self->render('answer/mark');
+};
+
+post '/answer/mark' => sub {
+  my $self = shift;
+  
+
+
+  $self->res->code(200);
+  $self->render(json => 'success');
 };
 
 # Create filename like image-20091014051023-78973
