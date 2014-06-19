@@ -5,11 +5,10 @@ body {
   position: relative;
 }
 
-#team-A {
-  background-color: #ddd;
-}
-
-#team-C {
+#team-A,
+#team-A-check,
+#team-C,
+#team-C-check {
   background-color: #ddd;
 }
 
@@ -19,8 +18,11 @@ body {
 
 .answer-opened {
   background-color: #33F;
+  border: 5px solid #FFF;
 }
 
 .answer-ok {
   background-color: #F33;
 }
+
+

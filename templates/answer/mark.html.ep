@@ -2,35 +2,64 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Show Answers</title>
+  <title>採点システム</title>
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <script src="/js/jquery-1.11.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/main.js"></script>
   <script src="/js/mark.js"></script>
 </head>
 <body>
-<div id="team-A" class="row">
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
+<div class="container" style="margin-bottom: 20px;">
+  <h1>採点システム</h1>
+  <hr />
+  <div class="row">
+    <button type="button" class="btn btn-primary" id="answer-show">SHOW</button>
+    <button type="button" class="btn btn-default" id="answer-hide">HIDE</button>
+    <button type="button" class="btn btn-success" id="answer-mark">採点！！</button>
+    <button type="button" class="btn btn-danger" id="answer-reset">リセット（回答が削除されます）</button>
+  </div>
 </div>
-
-<div id="team-B" class="row">
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-</div>
-
-<div id="team-C" class="row">
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-  <div class="col-xs-3" style="height:30%;position:relative;"><img src="/img/question_mark.png" style="height:30%;"></div>
-</div>
+<table class="table table-bordered">
+  <tbody>
+    <tr id="team-A">
+      <td data-number="1"><img src="/img/question_mark.png" style="height:30%;"></td>
+      <td data-number="2"><img src="/img/question_mark.png" style="height:30%;"></td>
+      <td data-number="3"><img src="/img/question_mark.png" style="height:30%;"></td>
+      <td data-number="4"><img src="/img/question_mark.png" style="height:30%;"></td>
+    </tr>
+    <tr id="team-A-check">
+      <td><div class="checkbox"><input type="checkbox" id="A-1" data-number="1"><label for="A-1">正解！</label></div></td>
+      <td><div class="checkbox"><input type="checkbox" id="A-2" data-number="2"><label for="A-2">正解！</label></div></td>
+      <td><div class="checkbox"><input type="checkbox" id="A-3" data-number="3"><label for="A-3">正解！</label></div></td>
+      <td><div class="checkbox"><input type="checkbox" id="A-4" data-number="4"><label for="A-4">正解！</label></div></td>
+    </tr>
+    <tr id="team-B">
+      <td data-number="1"><img src="/img/question_mark.png" style="height:30%;"></td>
+      <td data-number="2"><img src="/img/question_mark.png" style="height:30%;"></td>
+      <td data-number="3"><img src="/img/question_mark.png" style="height:30%;"></td>
+      <td data-number="4"><img src="/img/question_mark.png" style="height:30%;"></td>
+    </tr>
+    <tr id="team-B-check">
+      <td><div class="checkbox"><input type="checkbox" id="B-1" data-number="1"><label for="B-1">正解！</label></div></td>
+      <td><div class="checkbox"><input type="checkbox" id="B-2" data-number="2"><label for="B-2">正解！</label></div></td>
+      <td><div class="checkbox"><input type="checkbox" id="B-3" data-number="3"><label for="B-3">正解！</label></div></td>
+      <td><div class="checkbox"><input type="checkbox" id="B-4" data-number="4"><label for="B-4">正解！</label></div></td>
+    </tr>
+    <tr id="team-C">
+      <td data-number="1"><img src="/img/question_mark.png" style="height:30%;"></td>
+      <td data-number="2"><img src="/img/question_mark.png" style="height:30%;"></td>
+      <td data-number="3"><img src="/img/question_mark.png" style="height:30%;"></td>
+      <td data-number="4"><img src="/img/question_mark.png" style="height:30%;"></td>
+    </tr>
+    <tr id="team-C-check">
+      <td><div class="checkbox"><input type="checkbox" id="C-1" data-number="1"><label for="C-1">正解！</label></div></td>
+      <td><div class="checkbox"><input type="checkbox" id="C-2" data-number="2"><label for="C-2">正解！</label></div></td>
+      <td><div class="checkbox"><input type="checkbox" id="C-3" data-number="3"><label for="C-3">正解！</label></div></td>
+      <td><div class="checkbox"><input type="checkbox" id="C-4" data-number="4"><label for="C-4">正解！</label></div></td>
+    </tr>
+  </tbody>
+</table>
 </body>
 </html>
